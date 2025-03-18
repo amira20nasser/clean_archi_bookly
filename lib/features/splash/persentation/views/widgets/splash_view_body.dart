@@ -1,4 +1,8 @@
+import 'package:clean_archi_bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/state_manager.dart';
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_images.dart';
 import 'silding_text.dart';
 
@@ -17,12 +21,27 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
+    initSlidingAnimation();
+    navigateToHome();
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(
+        () => const HomeView(),
+        transition: Transition.upToDown,
+        duration: kTranstionDuration,
+      );
+    });
+  }
+
+  void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(minutes: 1),
+      duration: const Duration(seconds: 1),
     );
     slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 10),
+      begin: const Offset(0, 15),
       end: const Offset(0, 0),
     ).animate(animationController);
     animationController.forward();
