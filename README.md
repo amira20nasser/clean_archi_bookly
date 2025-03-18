@@ -14,7 +14,7 @@ core
 features 
  - splash
   - presentation
-    - manager (state management)
+    - manager (state management) view_model
     - views
       - widgets
       
