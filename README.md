@@ -1,16 +1,23 @@
 # clean_archi_bookly
 
-A new Flutter project.
+# Clean Architecture
+<div style="text-align: center;">
+<img src="Clean-Architecture-Flutter-Diagram.webp" alt="Beautiful Landscape" width="400" height="400">
+</div>
 
-## Getting Started
+## Layers 
+### Persentation Layer
+- Widgets 
+- Persentation Logic Holders (Bloc - any state management)
 
-This project is a starting point for a Flutter application.
+core 
+features 
+ - splash
+  - presentation
+    - manager (state management)
+    - views
+      - widgets
+      
+### Domain
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Data
