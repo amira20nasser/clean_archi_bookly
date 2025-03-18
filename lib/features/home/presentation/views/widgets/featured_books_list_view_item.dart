@@ -17,7 +17,8 @@ class FeaturedBooksListViewItem extends StatelessWidget {
             image: const DecorationImage(
               fit: BoxFit.fill,
               image: NetworkImage(
-                "https://books.google.com/books/content?id=4o4qEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                // "https://books.google.com/books/content?id=4o4qEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                "https://books.google.com/books/content?id=1sIzdipoXuQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
               ),
             ),
           ),
