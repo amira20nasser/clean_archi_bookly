@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
-import 'best_seller_list_view.dart';
+import 'best_seller_list_view_item.dart';
 import 'featured_books_list_view.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class TabletHomeViewBody extends StatelessWidget {
+  const TabletHomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,21 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          const SliverFillRemaining(
-            child: Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: BestSellerListView(),
+          SliverGrid(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, // Number of columns
+              childAspectRatio: 4, // Adjust this ratio to fit your item size
+              crossAxisSpacing: 20, // Space between columns
+              mainAxisSpacing: 20, // Space between rows
+            ),
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return const Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: BestSellerListViewItem(),
+                );
+              },
+              childCount: 2, // Number of items
             ),
           ),
         ],

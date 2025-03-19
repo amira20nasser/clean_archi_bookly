@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class BookRating extends StatelessWidget {
@@ -14,16 +14,23 @@ class BookRating extends StatelessWidget {
         const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffffdd4f),
+          size: 10,
         ),
         const SizedBox(width: 7),
-        Text(
-          "4.8",
-          style: AppStyles.textStyle16(context),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "4.8",
+            style: AppStyles.textStyle16(context),
+          ),
         ),
         const SizedBox(width: 5),
-        Text(
-          "(245)",
-          style: AppStyles.textStyle14(context),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "(245)",
+            style: AppStyles.textStyle14(context),
+          ),
         ),
       ],
     );
