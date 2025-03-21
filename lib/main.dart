@@ -1,9 +1,8 @@
 import 'package:clean_archi_bookly/constants.dart';
+import 'package:clean_archi_bookly/core/utils/app_router.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'features/splash/persentation/views/splash_view.dart';
 
 void main() {
   runApp(
@@ -19,11 +18,12 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      routerConfig: AppRouter.router,
+      // home: const SplashView(),
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
@@ -31,3 +31,6 @@ class BooklyApp extends StatelessWidget {
     );
   }
 }
+
+// GetMaterialApp -> Not Well documented - but Good for theme management 
+// 

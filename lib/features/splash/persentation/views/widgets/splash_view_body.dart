@@ -1,8 +1,6 @@
-import 'package:clean_archi_bookly/features/home/presentation/views/home_view.dart';
+import 'package:clean_archi_bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
-import '../../../../../constants.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_images.dart';
 import 'silding_text.dart';
 
@@ -27,11 +25,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.upToDown,
-        duration: kTranstionDuration,
-      );
+      // Get.to(
+      //   () => const HomeView(),
+      //   transition: Transition.upToDown,
+      //   duration: kTranstionDuration,
+      // );
+      GoRouter.of(context).pushReplacement(AppRouter.homeView);
     });
   }
 
