@@ -1,8 +1,5 @@
 import 'dart:developer';
-import 'dart:ui';
-
 import 'package:flutter/widgets.dart';
-
 import '../../constants.dart';
 
 abstract class AppStyles {
