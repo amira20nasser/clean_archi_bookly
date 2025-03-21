@@ -26,6 +26,9 @@ class BooklyApp extends StatelessWidget {
       // home: const SplashView(),
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+        ),
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
     );
@@ -34,3 +37,4 @@ class BooklyApp extends StatelessWidget {
 
 // GetMaterialApp -> Not Well documented - but Good for theme management 
 // 
+
