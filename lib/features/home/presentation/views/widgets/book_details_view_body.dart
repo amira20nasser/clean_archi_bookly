@@ -12,7 +12,8 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
+        SliverFillRemaining(
+          hasScrollBody: false,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
@@ -35,7 +36,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 const BookRating(),
                 const SizedBox(height: 50),
                 const BookDetailsAction(),
-                const SizedBox(height: 37),
+                const Expanded(child: SizedBox(height: 37)),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -45,14 +46,11 @@ class BookDetailsViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 16),
+                const SimilarBooksListView(),
+                const SizedBox(height: 32),
               ],
             ),
-          ),
-        ),
-        const SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 16),
-            child: SimilarBooksListView(),
           ),
         ),
       ],
