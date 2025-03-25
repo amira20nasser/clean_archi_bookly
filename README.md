@@ -34,6 +34,8 @@ Defines the core business logic and rules of the application.
 
 ### 3. Data Layer 
 - Models: Data structures used for API communication and local storage.
+- Repositories: Implementation of repositories within the domain layer.
+- Data Sources: Various sources from which data is fetched or stored.
 
 ## Error Handling with Try-Catch
 - Manually handling exceptions can be error-prone.
