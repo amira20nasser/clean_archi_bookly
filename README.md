@@ -44,6 +44,19 @@ Defines the core business logic and rules of the application.
   - Defines explicit success and failure cases.
   - Improves reliability and error handling.
 
+## Why use `get_it`
+1. Code Scalability
+
+Instead of manually passing dependencies through constructors or using global variables, GetIt allows easy retrieval of instances anywhere in the app.
+
+This simplifies dependency injection and makes code more modular, reducing repetitive boilerplate.
+
+
+
+2. Single Responsibility Principle
+
+GetIt promotes separation of concerns by allowing objects to be registered and accessed independently.
+
 
 # Overall Clean Architechture Structure
 ```bash
