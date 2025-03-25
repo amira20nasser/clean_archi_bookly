@@ -4,17 +4,20 @@ import 'package:clean_archi_bookly/features/home/domain/entities/book_entity.dar
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() async{
+void main() async {
   runApp(
     DevicePreview(
       enabled: true,
       builder: (context) => const BooklyApp(),
     ),
   );
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
- await Hive.openBox(kFeaturedBox);
+  await Hive.openBox(kFeaturedBox);
+    await Hive.openBox(kNewestBox);
+
 }
 
 class BooklyApp extends StatelessWidget {

@@ -22,8 +22,6 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     return books;
   }
 
-  
-
   List<BookEntity> getBooksList(Map<String, dynamic> data) {
     List<BookEntity> books = [];
     for (var bookMap in data["items"]) {
@@ -37,6 +35,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint: "volumes?Filtering=free-ebook&Sorting=newest&q=programming");
     List<BookEntity> books = getBooksList(data);
+    saveBooksData(books, kNewestBox);
+
     return books;
   }
 }
