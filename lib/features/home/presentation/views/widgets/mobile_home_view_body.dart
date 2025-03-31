@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'best_seller_list_view.dart';
 import 'featured_books_list_view.dart';
+import 'featured_books_list_view_bloc_builder.dart';
 
 class MobileHomeViewBody extends StatelessWidget {
   const MobileHomeViewBody({super.key});
@@ -17,7 +18,7 @@ class MobileHomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // list expand not spcific height
-                const FeaturedBooksListView(),
+                const FeaturedBooksListViewBlocBuilder(),
                 const SizedBox(height: 50),
                 Text(
                   "Best Seller",
@@ -38,3 +39,5 @@ class MobileHomeViewBody extends StatelessWidget {
     );
   }
 }
+
+
