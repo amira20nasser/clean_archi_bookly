@@ -1,7 +1,6 @@
 import 'package:clean_archi_bookly/core/utils/functions/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../constants.dart';
 import '../../../domain/entities/book_entity.dart';
 import '../../manager/featured_books_cubit/featured_books_cubit.dart';
 import 'featured_books_list_view.dart';

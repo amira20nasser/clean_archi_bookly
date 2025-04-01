@@ -24,16 +24,10 @@ class MobileHomeViewBody extends StatelessWidget {
                   style: AppStyles.textStyle18(context),
                 ),
                 const SizedBox(height: 20),
-                NewestListViewBlocBuilder()
+                const NewestListViewBlocBuilder()
               ],
             ),
           ),
-          // const SliverFillRemaining(
-          //   child: Padding(
-          //     padding: EdgeInsets.only(right: 16.0),
-          //     child: NewestListViewBlocBuilder(),
-          //   ),
-          // ),
         ],
       ),
     );

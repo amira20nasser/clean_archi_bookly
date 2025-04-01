@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import '../../constants.dart';
 
@@ -44,7 +43,7 @@ double getResponsiveFontSize(
   double responsiveFontSize = baseFontSize * scaleFactor;
   double lowerLimit = baseFontSize * .8;
   double upperLimit = baseFontSize * 1.2;
-  log("fontsize $baseFontSize scaleFactor $scaleFactor LowerLimit $lowerLimit upperLimit $upperLimit ,responsiveFontSize $responsiveFontSize ");
+  // log("fontsize $baseFontSize scaleFactor $scaleFactor LowerLimit $lowerLimit upperLimit $upperLimit ,responsiveFontSize $responsiveFontSize ");
   return responsiveFontSize.clamp(lowerLimit, upperLimit);
 }
 
@@ -57,7 +56,7 @@ double getScaleFactor(BuildContext context) {
   // var devicePixelRatio = dispatcher.views.first.devicePixelRatio;
   // var width = physicalWidth / devicePixelRatio;
   double width = MediaQuery.sizeOf(context).width;
-  log("Current Width $width");
+  // log("Current Width $width");
   if (width < 800) {
     return width / 550;
   } else if (width < 1300) {

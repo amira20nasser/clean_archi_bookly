@@ -1,4 +1,3 @@
-import 'package:clean_archi_bookly/core/errors/failure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/widgets.dart';
 import '../../../domain/entities/book_entity.dart';

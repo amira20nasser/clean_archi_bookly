@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import 'book_details_image.dart';
-import 'book_rating.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key});
