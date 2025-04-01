@@ -4,13 +4,15 @@ import '../../../../core/use_case.dart';
 import '../entities/book_entity.dart';
 import '../repos/home_repo.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, void> {
+class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, int> {
   final HomeRepo homeRepo;
   FetchFeaturedBooksUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failure, List<BookEntity>>> execute([void param]) {
+  Future<Either<Failure, List<BookEntity>>> execute([int param = 0]) {
     // check premisions
-    return homeRepo.fetchFeaturedBooks();
+    return homeRepo.fetchFeaturedBooks(
+      pageNumber: param,
+    );
   }
 }

@@ -1,3 +1,4 @@
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/widgets.dart';
 import '../../../domain/entities/book_entity.dart';
@@ -9,9 +10,11 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.fetchFeaturedBooksUseCase)
       : super(FeaturedBooksInitial());
   final FetchFeaturedBooksUseCase fetchFeaturedBooksUseCase;
-  Future<void> fetchFeaturedBooks() async {
+
+  Future<void> fetchFeaturedBooks({int pageNumber = 0}) async {
+    // log("trigger");
     emit(FeaturedBooksLoading());
-    var result = await fetchFeaturedBooksUseCase.execute();
+    var result = await fetchFeaturedBooksUseCase.execute(pageNumber);
     result.fold(
       (failure) {
         emit(FeaturedBooksFailure(failure.message));

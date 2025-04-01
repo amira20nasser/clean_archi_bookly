@@ -71,4 +71,6 @@ class BooklyApp extends StatelessWidget {
 }
 
 // GetMaterialApp -> Not Well documented - but Good for theme management
-//
+// pagination 
+// maxResult 
+// start index 

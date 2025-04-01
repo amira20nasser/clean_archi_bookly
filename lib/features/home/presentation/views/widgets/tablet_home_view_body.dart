@@ -2,7 +2,6 @@ import 'package:clean_archi_bookly/features/home/presentation/views/widgets/feat
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'best_seller_list_view_item.dart';
-import 'featured_books_list_view.dart';
 
 class TabletHomeViewBody extends StatelessWidget {
   const TabletHomeViewBody({super.key});
