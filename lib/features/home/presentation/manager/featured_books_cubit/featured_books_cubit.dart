@@ -1,3 +1,4 @@
+import 'package:clean_archi_bookly/core/errors/failure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/widgets.dart';
 import '../../../domain/entities/book_entity.dart';
@@ -12,7 +13,6 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
   Future<void> fetchFeaturedBooks({int pageNumber = 0}) async {
     // log("trigger");
-
     if (pageNumber == 0) {
       emit(FeaturedBooksLoading());
     } else {
@@ -21,7 +21,11 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
     var result = await fetchFeaturedBooksUseCase.execute(pageNumber);
     result.fold(
       (failure) {
-        emit(FeaturedBooksFailure(failure.message));
+        if (pageNumber == 0) {
+          emit(FeaturedBooksFailure(failure.message));
+        } else {
+          emit(FeaturedBooksPaginationFailure(failure.message));
+        }
       },
       (books) {
         emit(FeaturedBooksSuccess(books));
