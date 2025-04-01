@@ -18,3 +18,7 @@ class FeaturedBooksSuccess extends FeaturedBooksState {
 
   FeaturedBooksSuccess(this.books);
 }
+
+class FeaturedBooksPaginationLoading extends FeaturedBooksState{
+  
+}
