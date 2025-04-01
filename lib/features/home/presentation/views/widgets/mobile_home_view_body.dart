@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'featured_books_list_view_bloc_builder.dart';
+import 'newest_list_view_bloc_builder.dart';
 
 class MobileHomeViewBody extends StatelessWidget {
   const MobileHomeViewBody({super.key});
@@ -23,13 +24,14 @@ class MobileHomeViewBody extends StatelessWidget {
                   style: AppStyles.textStyle18(context),
                 ),
                 const SizedBox(height: 20),
+                NewestListViewBlocBuilder()
               ],
             ),
           ),
           // const SliverFillRemaining(
           //   child: Padding(
           //     padding: EdgeInsets.only(right: 16.0),
-          //     child: BestSellerListView(),
+          //     child: NewestListViewBlocBuilder(),
           //   ),
           // ),
         ],

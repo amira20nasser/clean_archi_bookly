@@ -1,10 +1,11 @@
+import 'package:clean_archi_bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,7 +20,7 @@ class BookRating extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            "4.8",
+            book.rating.toString() ,
             style: AppStyles.textStyle16(context),
           ),
         ),
@@ -27,7 +28,7 @@ class BookRating extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            "(245)",
+            "(${((book.rating ?? 0 / 6) * 100) })",
             style: AppStyles.textStyle14(context).copyWith(
               color: const Color(0xff707070),
             ),

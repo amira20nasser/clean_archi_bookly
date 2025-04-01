@@ -38,7 +38,7 @@ class TabletHomeViewBody extends StatelessWidget {
               (BuildContext context, int index) {
                 return const Padding(
                   padding: EdgeInsets.only(right: 16.0),
-                  child: BestSellerListViewItem(),
+                  // child: NewestListViewItem(),
                 );
               },
               childCount: 2, // Number of items
