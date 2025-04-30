@@ -20,7 +20,7 @@ class BookRating extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            book.rating.toString() ,
+            book.rating?.toString() ?? "0.0",
             style: AppStyles.textStyle16(context),
           ),
         ),
@@ -28,7 +28,7 @@ class BookRating extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            "(${((book.rating ?? 0 / 6) * 100) })",
+            "(${((book.rating ?? 0 / 6) * 100)})",
             style: AppStyles.textStyle14(context).copyWith(
               color: const Color(0xff707070),
             ),

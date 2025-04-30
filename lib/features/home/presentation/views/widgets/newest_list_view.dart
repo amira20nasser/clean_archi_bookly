@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 
 import '../../../domain/entities/book_entity.dart';
@@ -7,6 +6,7 @@ import 'best_seller_list_view_item.dart';
 class NewestListView extends StatelessWidget {
   const NewestListView({super.key, required this.books});
   final List<BookEntity> books;
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(

@@ -3,35 +3,44 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/functions/custom_error_widget.dart';
 import '../../../../../core/utils/functions/custom_loading_indicator.dart';
+import '../../../../../core/utils/functions/show_snack_bar.dart';
+import '../../../domain/entities/book_entity.dart';
 import '../../manager/newest_books_cubit/newest_books_cubit.dart';
-import 'best_seller_list_view_item.dart';
+import 'sliver_grid_widget.dart';
 
-class NewestBooksGridViewBlocBuilder extends StatelessWidget {
+class NewestBooksGridViewBlocBuilder extends StatefulWidget {
   const NewestBooksGridViewBlocBuilder({super.key});
 
   @override
+  State<NewestBooksGridViewBlocBuilder> createState() =>
+      _NewestBooksGridViewBlocBuilderState();
+}
+
+class _NewestBooksGridViewBlocBuilderState
+    extends State<NewestBooksGridViewBlocBuilder> {
+  final List<BookEntity> books = [];
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
-      builder: (context, state) {
+    return BlocConsumer<NewestBooksCubit, NewestBooksState>(
+      listener: (context, state) {
         if (state is NewestBooksSuccess) {
-          return SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Number of columns
-              childAspectRatio: 4, // Adjust this ratio to fit your item size
-              crossAxisSpacing: 20, // Space between columns
-              mainAxisSpacing: 20, // Space between rows
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: NewestListViewItem(
-                    book: state.books[index],
-                  ),
-                );
-              },
-              childCount: state.books.length, // Number of items
-            ),
+          books.addAll(state.books);
+        }
+        if (state is NewestBooksPaginationFailure) {
+          showSnackBar(
+            context,
+            text: state.errMsg,
+            backgroundColor: Colors.white,
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state is NewestBooksSuccess ||
+            state is NewestBooksPaginationFailure ||
+            state is NewestBooksPaginationLoading) {
+          return SliverGridWidget(
+            books: books,
           );
         } else if (state is NewestBooksFailure) {
           return SliverToBoxAdapter(
@@ -45,3 +54,4 @@ class NewestBooksGridViewBlocBuilder extends StatelessWidget {
     );
   }
 }
+

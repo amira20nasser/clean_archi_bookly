@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BookDetailsImage extends StatelessWidget {
-  const BookDetailsImage({super.key});
-
+  const BookDetailsImage({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -12,12 +12,13 @@ class BookDetailsImage extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
+            image:  DecorationImage(
               // alignment: Alignment.center,
 
               fit: BoxFit.fill,
               image: NetworkImage(
-                "https://books.google.com/books/content?id=1sIzdipoXuQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                image,
+                
               ),
             ),
           ),

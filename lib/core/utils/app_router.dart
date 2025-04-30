@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/home/domain/entities/book_entity.dart';
 import '../../features/home/presentation/views/book_details_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/search/persentation/views/search_view.dart';
@@ -44,13 +45,42 @@ abstract class AppRouter {
           );
         },
       ),
+      // GoRoute(
+      //   path: kBookDetailsView,
+      //   builder: (context, state) => const BookDetailsView(),
+      //   pageBuilder: (context, state) {
+      //     final book = state.extra as BookEntity;
+
+      //     return CustomTransitionPage<void>(
+      //       key: state.pageKey,
+      //       child: BookDetailsView(
+      //         book: book,
+      //       ),
+      //       barrierDismissible: true,
+      //       barrierColor: Colors.black38,
+      //       opaque: false,
+      //       transitionDuration: const Duration(milliseconds: 500),
+      //       reverseTransitionDuration: const Duration(milliseconds: 200),
+      //       transitionsBuilder: (BuildContext context,
+      //           Animation<double> animation,
+      //           Animation<double> secondaryAnimation,
+      //           Widget child) {
+      //         return FadeTransition(
+      //           opacity: animation,
+      //           child: child,
+      //         );
+      //       },
+      //     );
+      //   },
+      // ),
+
       GoRoute(
         path: kBookDetailsView,
-        builder: (context, state) => const BookDetailsView(),
         pageBuilder: (context, state) {
+          final book = state.extra as BookEntity;
           return CustomTransitionPage<void>(
             key: state.pageKey,
-            child: const BookDetailsView(),
+            child: BookDetailsView(book: book),
             barrierDismissible: true,
             barrierColor: Colors.black38,
             opaque: false,
